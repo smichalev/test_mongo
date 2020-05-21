@@ -1,0 +1,37 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    max-width: 800px;
+    margin: 10px auto;
+    background: #eee;
+}
+
+a {
+    text-decoration: none;
+}
+
+input[type='submit'] {
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 6px 10px;
+    cursor: pointer;
+}
+
+input[type='submit']:hover {
+    outline: none;
+    border: 1px solid grey;
+}
+
+input[type='text'], input[type='password'] {
+    outline: none;
+    padding: 5px 10px;
+}
+
+textarea {
+    outline: none;
+    padding: 5px 10px;
+}

@@ -1,0 +1,4 @@
+ .directory
+ .git
+ node_modules
+ .idea

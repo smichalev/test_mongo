@@ -1,0 +1,8 @@
+<%- include('./header', {title: 'Регистрация'}); %>
+<h1>Регистрация</h1>
+<form action="/registration" method="post" style="margin-top: 20px">
+    <input type="text" name="login" placeholder="Логин">
+    <input type="password" name="password" placeholder="Пароль">
+    <input type="submit" value="Зарегистрироваться">
+</form>
+<%- include('./footer'); %>

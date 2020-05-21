@@ -1,0 +1,54 @@
+<%- include('./header', {title: 'Главная страница'}); %>
+<% if(!login) { %>
+    <div style="display: flex; justify-content: space-between; align-items: center">
+        <h1>Вы не авторизированны</h1>
+        <p>
+            <a href="/registration" style="margin-right: 10px">Регистрация</a>
+            <a href="/login">Авторизация</a>
+        </p>
+    </div>
+<% } else { %>
+    <div style="display: flex; justify-content: space-between; align-items: center">
+        <h1>Добро пожаловать!</h1>
+        <div style="display: flex; align-items: center">
+            <span>Вы зашли как: <b><%= login.login %></b></span>
+            <form action="/logout" method="post" style="margin-left: 10px">
+                <input type="submit" value="Выход">
+            </form>
+        </div>
+    </div>
+<% } %>
+<div style="margin: 20px 0; display: flex; justify-content: space-between; align-items: center">
+    <h1>Список статьей</h1>
+    <% if(login) { %>
+        <a href="/newarticle">Добавить новую статью</a>
+    <% } %>
+</div>
+
+<div style="display: flex; flex-direction: column">
+    <% if(articles.length) { %>
+        <% articles.forEach((article) => { %>
+            <div style="background: #f1f1f1; border: 1px solid #ccc; border-radius: 5px; margin-bottom: 10px; padding: 5px; background: #fff">
+                <a style="font-size: 20px; font-weight: bold" href="/<%- article._id %>"><%- article.title %></a>
+                <div style="font-size: 14px; text-transform: uppercase">Дата: <%= article.date %></div>
+                <p style="font-size: 20px"><%= article.content %></p>
+            </div>
+        <% }); %>
+    <% } else { %>
+        Нет ни одной статьи
+    <% } %>
+</div>
+
+<div style="display: flex">
+    <div>Страница:</div>
+    <% arrPage.forEach((item) => { %>
+        <% if(item == page) { %>
+            <b><%= item %></b>
+        <% } else { %>
+            <a href="/?page=<%= item %>"><%= item %></a>
+        <% } %>
+    <% }); %>
+</div>
+
+<%- include('./footer'); %>
+

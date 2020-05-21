@@ -1,0 +1,9 @@
+<%- include('./header', {title: 'Редактирование статьи: ' + article.title}); %>
+<h1>Редактирование статьи</h1>
+
+<form action="/edit/<%= article._id %>" method="post" style="display: flex; flex-direction: column; max-width: 400px">
+    <input type="text" name="title" style="margin: 5px 0" value="<%= article.title %>">
+    <textarea name="content" id="" cols="30" rows="10" style="margin: 5px 0"><%= article.content %></textarea>
+    <input type="submit" value="Редактировать" style="margin: 5px 0">
+</form>
+<%- include('./footer'); %>
